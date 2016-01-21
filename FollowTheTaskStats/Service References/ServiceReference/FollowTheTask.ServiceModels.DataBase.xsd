@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManagerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkerId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Manager" nillable="true" type="tns:Manager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfManager" nillable="true" type="tns:ArrayOfManager" />
+  <xs:complexType name="Manager">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TrackedTasksIds" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WorkersIds" nillable="true" type="q2:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Manager" nillable="true" type="tns:Manager" />
+  <xs:complexType name="ArrayOfWorker">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Worker" nillable="true" type="tns:Worker" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorker" nillable="true" type="tns:ArrayOfWorker" />
+  <xs:complexType name="Worker">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ManagerId" nillable="true" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="QuestsIds" nillable="true" type="q3:ArrayOfint" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Worker" nillable="true" type="tns:Worker" />
+  <xs:complexType name="ArrayOfTrackedTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackedTask" nillable="true" type="tns:TrackedTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackedTask" nillable="true" type="tns:ArrayOfTrackedTask" />
+  <xs:complexType name="TrackedTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompletionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeadLine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HoursSpent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsFinished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IssuedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ManagerId" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="QuestsIds" nillable="true" type="q4:ArrayOfint" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackedTask" nillable="true" type="tns:TrackedTask" />
+  <xs:complexType name="ArrayOfQuest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Quest" nillable="true" type="tns:Quest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuest" nillable="true" type="tns:ArrayOfQuest" />
+  <xs:complexType name="Quest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompletionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeadLine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HoursSpent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsFinished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IssuedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackedTaskId" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkerId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Quest" nillable="true" type="tns:Quest" />
+</xs:schema>

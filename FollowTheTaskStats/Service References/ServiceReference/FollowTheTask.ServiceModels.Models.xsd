@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" />
+  <xs:complexType name="ArrayOfManagerModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ManagerModel" nillable="true" type="tns:ManagerModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfManagerModel" nillable="true" type="tns:ArrayOfManagerModel" />
+  <xs:complexType name="ManagerModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="TrackedTasks" nillable="true" type="q1:ArrayOfTrackedTask" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="User" nillable="true" type="q2:User" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="Workers" nillable="true" type="q3:ArrayOfWorker" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManagerModel" nillable="true" type="tns:ManagerModel" />
+  <xs:complexType name="ArrayOfWorkerModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkerModel" nillable="true" type="tns:WorkerModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkerModel" nillable="true" type="tns:ArrayOfWorkerModel" />
+  <xs:complexType name="WorkerModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="Manager" nillable="true" type="q4:Manager" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="Quests" nillable="true" type="q5:ArrayOfQuest" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="User" nillable="true" type="q6:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkerModel" nillable="true" type="tns:WorkerModel" />
+  <xs:complexType name="ArrayOfTrackedTaskModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackedTaskModel" nillable="true" type="tns:TrackedTaskModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackedTaskModel" nillable="true" type="tns:ArrayOfTrackedTaskModel" />
+  <xs:complexType name="TrackedTaskModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompletionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeadLine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HoursSpent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsFinished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IssuedDate" type="xs:dateTime" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="Manager" nillable="true" type="q7:Manager" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="Quests" nillable="true" type="q8:ArrayOfQuest" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackedTaskModel" nillable="true" type="tns:TrackedTaskModel" />
+  <xs:complexType name="ArrayOfQuestModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestModel" nillable="true" type="tns:QuestModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestModel" nillable="true" type="tns:ArrayOfQuestModel" />
+  <xs:complexType name="QuestModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompletionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeadLine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HoursSpent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsFinished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IssuedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="TrackedTask" nillable="true" type="q9:TrackedTask" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" minOccurs="0" name="Worker" nillable="true" type="q10:Worker" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestModel" nillable="true" type="tns:QuestModel" />
+</xs:schema>

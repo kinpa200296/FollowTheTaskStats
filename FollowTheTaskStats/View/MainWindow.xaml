@@ -1,0 +1,89 @@
+﻿<Window x:Class="FollowTheTaskStats.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:FollowTheTaskStats.ViewModel"
+        xmlns:m="clr-namespace:FollowTheTaskStats.Model"
+        Title="Статистика пользователей FollowTheTask" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainWindowViewModel x:Name="ViewModel"/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="StatsTemplate" DataType="m:UserStats">
+            <Border Name="Border" BorderBrush="{Binding BorderBrush}" BorderThickness="3"
+                    CornerRadius="2" Padding="3" Margin="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="{Binding Role}" />
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="{Binding UserName}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="Всего:" />
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="{Binding Total}" Foreground="DarkGray" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                    <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="Сдал: " />
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="{Binding TotalCompleted}" Foreground="Blue" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="Вовремя: " />
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="{Binding InTime}" Foreground="Green" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="3">
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="С опазданием: " />
+                        <TextBlock Margin="5" FontSize="12" FontWeight="Bold"
+                                   Text="{Binding NotInTime}" Foreground="Red" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    <TabControl Margin="5">
+        <TabItem Header="Статистика менеджеров">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ListView Margin="5" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding ManagersStats}" ItemTemplate="{StaticResource StatsTemplate}"/>
+                <Button Margin="5" Content="Запросить данные" Grid.Column="0" Grid.Row="1" Command="{Binding LoadManagersStats}" Visibility="{Binding ManagersButtonVisibility}" />
+                <ProgressBar Grid.Row="1" Grid.Column="0" Visibility="{Binding ManagersProgressBarVisibility}" IsIndeterminate="True"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Статистика исполнителей">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ListView Margin="5" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding WorkersStats}" ItemTemplate="{StaticResource StatsTemplate}"/>
+                <Button Margin="5" Content="Запросить данные" Grid.Column="0" Grid.Row="1" Command="{Binding LoadWorkersStats}" Visibility="{Binding WorkersButtonVisibility}"></Button>
+                <ProgressBar Grid.Row="1" Grid.Column="0" Visibility="{Binding WorkersProgressBarVisibility}" IsIndeterminate="True"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

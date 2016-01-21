@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FollowTheTaskService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.DataBase" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/FollowTheTask.ServiceModels.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFollowTheTaskService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserById" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetUserByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByName" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetUserByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetManagers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagers" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetManagers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManager" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkers" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkersForManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkersForManager" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkersForManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkersForManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorker" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTasks" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTasksForManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTasksForManager" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTasksForManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTasksForManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTask" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuests" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestsForWorker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestsForWorker" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestsForWorker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestsForWorkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestsForTrackedTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestsForTrackedTask" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestsForTrackedTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestsForTrackedTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuest" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetManagerModels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagerModels" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetManagerModels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagerModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetManagerModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagerModel" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetManagerModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagerModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkerModels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkerModels" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkerModels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkerModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkerModelsForManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkerModelsForManager" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkerModelsForManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkerModelsForManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkerModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkerModel" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetWorkerModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkerModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTaskModels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTaskModels" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTaskModels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTaskModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTaskModelsForManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTaskModelsForManager" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTaskModelsForManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTaskModelsForManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTaskModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTaskModel" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetTrackedTaskModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackedTaskModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestModels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestModels" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestModels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestModelsForWorker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestModelsForWorker" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestModelsForWorker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestModelsForWorkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestModelsForTrackedTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestModelsForTrackedTask" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestModelsForTrackedTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestModelsForTrackedTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestModel" />
+  </wsdl:message>
+  <wsdl:message name="IFollowTheTaskService_GetQuestModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestModelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFollowTheTaskService">
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetUsers" message="tns:IFollowTheTaskService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetUsersResponse" message="tns:IFollowTheTaskService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetUserById" message="tns:IFollowTheTaskService_GetUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetUserByIdResponse" message="tns:IFollowTheTaskService_GetUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetUserByName" message="tns:IFollowTheTaskService_GetUserByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetUserByNameResponse" message="tns:IFollowTheTaskService_GetUserByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManagers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetManagers" message="tns:IFollowTheTaskService_GetManagers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetManagersResponse" message="tns:IFollowTheTaskService_GetManagers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetManager" message="tns:IFollowTheTaskService_GetManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetManagerResponse" message="tns:IFollowTheTaskService_GetManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkers" message="tns:IFollowTheTaskService_GetWorkers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkersResponse" message="tns:IFollowTheTaskService_GetWorkers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkersForManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkersForManager" message="tns:IFollowTheTaskService_GetWorkersForManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkersForManagerResponse" message="tns:IFollowTheTaskService_GetWorkersForManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorker" message="tns:IFollowTheTaskService_GetWorker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkerResponse" message="tns:IFollowTheTaskService_GetWorker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTasks" message="tns:IFollowTheTaskService_GetTrackedTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTasksResponse" message="tns:IFollowTheTaskService_GetTrackedTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTasksForManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTasksForManager" message="tns:IFollowTheTaskService_GetTrackedTasksForManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTasksForManagerResponse" message="tns:IFollowTheTaskService_GetTrackedTasksForManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTask" message="tns:IFollowTheTaskService_GetTrackedTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskResponse" message="tns:IFollowTheTaskService_GetTrackedTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuests" message="tns:IFollowTheTaskService_GetQuests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestsResponse" message="tns:IFollowTheTaskService_GetQuests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestsForWorker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestsForWorker" message="tns:IFollowTheTaskService_GetQuestsForWorker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestsForWorkerResponse" message="tns:IFollowTheTaskService_GetQuestsForWorker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestsForTrackedTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestsForTrackedTask" message="tns:IFollowTheTaskService_GetQuestsForTrackedTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestsForTrackedTaskResponse" message="tns:IFollowTheTaskService_GetQuestsForTrackedTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuest" message="tns:IFollowTheTaskService_GetQuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestResponse" message="tns:IFollowTheTaskService_GetQuest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManagerModels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetManagerModels" message="tns:IFollowTheTaskService_GetManagerModels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetManagerModelsResponse" message="tns:IFollowTheTaskService_GetManagerModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManagerModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetManagerModel" message="tns:IFollowTheTaskService_GetManagerModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetManagerModelResponse" message="tns:IFollowTheTaskService_GetManagerModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerModels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkerModels" message="tns:IFollowTheTaskService_GetWorkerModels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkerModelsResponse" message="tns:IFollowTheTaskService_GetWorkerModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerModelsForManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkerModelsForManager" message="tns:IFollowTheTaskService_GetWorkerModelsForManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkerModelsForManagerResponse" message="tns:IFollowTheTaskService_GetWorkerModelsForManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkerModel" message="tns:IFollowTheTaskService_GetWorkerModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetWorkerModelResponse" message="tns:IFollowTheTaskService_GetWorkerModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTaskModels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModels" message="tns:IFollowTheTaskService_GetTrackedTaskModels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModelsResponse" message="tns:IFollowTheTaskService_GetTrackedTaskModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTaskModelsForManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModelsForManager" message="tns:IFollowTheTaskService_GetTrackedTaskModelsForManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModelsForManagerResponse" message="tns:IFollowTheTaskService_GetTrackedTaskModelsForManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTaskModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModel" message="tns:IFollowTheTaskService_GetTrackedTaskModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModelResponse" message="tns:IFollowTheTaskService_GetTrackedTaskModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestModels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestModels" message="tns:IFollowTheTaskService_GetQuestModels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestModelsResponse" message="tns:IFollowTheTaskService_GetQuestModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestModelsForWorker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestModelsForWorker" message="tns:IFollowTheTaskService_GetQuestModelsForWorker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestModelsForWorkerResponse" message="tns:IFollowTheTaskService_GetQuestModelsForWorker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestModelsForTrackedTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestModelsForTrackedTask" message="tns:IFollowTheTaskService_GetQuestModelsForTrackedTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestModelsForTrackedTaskResponse" message="tns:IFollowTheTaskService_GetQuestModelsForTrackedTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestModel" message="tns:IFollowTheTaskService_GetQuestModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFollowTheTaskService/GetQuestModelResponse" message="tns:IFollowTheTaskService_GetQuestModel_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFollowTheTaskService" type="tns:IFollowTheTaskService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetUserByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManagers">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetManagers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManager">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkers">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetWorkers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkersForManager">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetWorkersForManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorker">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetWorker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTasks">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetTrackedTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTasksForManager">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetTrackedTasksForManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTask">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetTrackedTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuests">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetQuests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestsForWorker">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetQuestsForWorker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestsForTrackedTask">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetQuestsForTrackedTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuest">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetQuest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManagerModels">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetManagerModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManagerModel">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetManagerModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerModels">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetWorkerModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerModelsForManager">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetWorkerModelsForManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerModel">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetWorkerModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTaskModels">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTaskModelsForManager">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModelsForManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackedTaskModel">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetTrackedTaskModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestModels">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetQuestModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestModelsForWorker">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetQuestModelsForWorker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestModelsForTrackedTask">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetQuestModelsForTrackedTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestModel">
+      <soap:operation soapAction="http://tempuri.org/IFollowTheTaskService/GetQuestModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FollowTheTaskService">
+    <wsdl:port name="BasicHttpBinding_IFollowTheTaskService" binding="tns:BasicHttpBinding_IFollowTheTaskService">
+      <soap:address location="http://followthetask.apphb.com/Service/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
